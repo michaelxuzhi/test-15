@@ -1,0 +1,69 @@
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-gradual-pink" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='icon-back'></text>
+      <!--这是时间轴之前的返回按钮图标  -->
+      时间轴
+    </navigator>
+  </view>
+</view>
+
+<!-- ---------------------------蓝色---------------------------------->
+
+<!--<view class="cu-timeline" wx:for="{{mydata}}" wx:key="mydata">
+  <view class="cu-time">{{item.date}}</view>
+  <!-- <view class="cu-time1"></view>
+  <view class='cu-item cur icon-noticefill'>
+    <view class="content bg-green shadow-blur">
+      <text>{{item.time}}</text> 【{{item.region[1]}}】{{item.textareaAValue}}
+    </view>
+  </view>
+  <view class='cu-item text-red icon-attentionforbidfill'>
+    <view class="content bg-red shadow-blur">
+      {{item.textareaAValue}}
+    </view>
+  </view>
+  <view class='cu-item text-grey icon-evaluate_fill'>
+    <view class="content bg-grey shadow-blur">
+      这是第一次，我家的铲屎官走了这么久。
+    </view>
+  </view> -->
+<!-- <view class='cu-item text-blue'>
+    <view class="bg-blue content" data-id='{{item._id}}' bindtouchstart='touchstart' bindtouchend='touchend' bindlongpress='longpress'>
+      <text>{{item.time}}</text> 【{{item.region}}】{{item.textareaAValue}}
+    </view>
+    <view class="bg-cyan content">
+      <text>10:00</text> 【银河系】快件已到达银河系，准备发往月球
+    </view> 
+  </view>
+</view> -->
+
+
+<!-- -----------------------------蓝色------------------------------ -->
+
+
+
+<view class="cu-timeline" wx:for="{{mydata}}" wx:key="mydata">
+  <!-- <view class="cu-time1">{{time2}}</view> -->
+  <view class="cu-item" style="color:{{colormy}}">
+    <view class="content" data-id='{{item._id}}' bindtouchstart='touchstart' bindtouchend='touchend' bindlongpress='longpress'>
+      <view class="cu-capsule radius">
+        <view class="cu-tag" style='background-color:{{colormy1}};color:#fff'>{{item.date}}</view>
+        <view class="cu-tag line-cyan">{{item.time}}</view>
+
+      </view>
+
+      <view class="margin-my">{{item.textareaAValue}}
+      <block wx:if="{{item.bigImg.length>0?true:false}}">
+      <image src='{{item.bigImg}}' mode="aspectFit"></image>
+      
+      </block>
+      </view>
+      <text class="icon-location text-orange" style='font-size:22rpx'>{{item.region}}</text>
+    </view>
+  </view>
+</view>
+
+<!-- <image wx:for="{{bigImg}}" wx:key="{{bigImg}}" src='{{item.bigImg}}' mode='aspectFit'></image> -->
+
+

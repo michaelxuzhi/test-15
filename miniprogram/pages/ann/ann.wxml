@@ -1,0 +1,12 @@
+<image class='img1' style='height:{{imgHeight1}}' bindtap='changeBigImg' mode="aspectFill" src='{{bigImg}}'></image>
+
+
+
+
+
+<view class="padding-sm">
+  <view class='flex flex-wrap justify-around'>
+    <button class='cu-btn bg-blue margin-sm basis-sm shadow' bindtap='insert'>添加</button>
+    <button class='cu-btn bg-red margin-sm basis-sm shadow' bindtap="cancel">查看</button>
+  </view>
+</view>

@@ -1,0 +1,118 @@
+<view class="slide_1" animation="{{slide_up1}}">
+<view class="margin radius bg-gradual-pink ">
+  <image src='https://image.weilanwl.com/gif/wave.gif' mode='scaleToFill' class='gif-black response' style='height:140rpx'></image>
+</view>
+
+
+<view class="cu-form-group">
+
+  <view class="title">日期
+    <text class="icon-calendar text-orange"></text>
+  </view>
+  <picker mode="date" value="{{date}}" start="2016-01-01" end="2020-12-31" bindchange="DateChange">
+    <view class="picker">
+      {{date}}
+    </view>
+  </picker>
+</view>
+
+<view class="cu-form-group">
+  <view class="title">时间
+    <text class="icon-time text-orange"></text>
+  </view>
+  <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="TimeChange">
+    <view class="picker">
+      {{time}}
+    </view>
+  </picker>
+</view>
+
+<view class="cu-form-group">
+  <view class="title" bindtap='location'>地点
+    <text class="icon-location text-orange"></text>
+  </view>
+  <picker mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="picker">
+      {{region[0]}}，{{region[1]}}，{{region[2]}}
+    </view>
+  </picker>
+</view>
+
+<view class="cu-form-group top">
+  <view class="title">心情
+    <text class="icon-evaluate text-orange"></text>
+  </view>
+  <textarea placeholder="记录今天的心情..." maxlength="-1" disabled="{{modalName!=null}}" placeholder-class="placeholder" class="{{textareaAValue?'value':' '}}" bindinput="textareaAInput"></textarea>
+</view>
+
+<!-------------从47行开始到71行，重写，已经错乱了---------------------->
+<!-- <view class="cu-bar bg-white border-top">
+    <view class="action">
+      图片上传<view class='icon-camera text-orange' bindtap='changeBigImg'></view> 
+    </view>
+    <!-- <view class="action">
+      {{bigImg.length}}/1
+    </view> 
+  </view>
+ 
+
+ 
+  <!-- <view class="cu-form-group">
+    <view class="grid col-4 grid-square flex-sub">
+      <view class="padding-xs bg-img" style="background-image:url({{bigImg}})" bindtap="ViewImage" data-url="{{bigImg}}">
+       <!-- wx:for="{{bigImg}}" wx:key="{{index}}" -->
+        <!-- <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+          <text class="icon-close"></text>
+        </view>
+      </view>
+      <view class="padding-xs solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
+        <text class="icon-cameraadd"></text>
+      </view> 
+    </view>
+  </view>
+<!-------------从47行开始到71行，重写，已经错乱了---------------------->
+
+
+<image class='img1' style='height:{{imgHeight1}}' bindtap='changeBigImg' mode="aspectFill" src='{{bigImg}}'></image>
+
+
+
+
+
+<view class="padding-sm">
+  <view class='flex flex-wrap justify-around'>
+    <button class='cu-btn bg-blue margin-sm basis-sm shadow' bindtap='insert'>添加</button>
+    <button class='cu-btn bg-red margin-sm basis-sm shadow' bindtap="cancel">查看</button>
+  </view>
+</view>
+
+<view class="cu-chat">
+<view class="cu-item">
+  <button open-type="getUserInfo" class="cu-avatar radius-my" bindgetuserinfo="onGetUserInfo" style="background-image:url({{avatarUrl}});"></button>
+    <view class="main">
+      <view class='content shadow'>
+        <text class='userinfo-nickname' bindtap="showModal" data-target="Image">今天的鸡汤！</text>
+      </view>
+    </view>
+    <!-- <view class='date '> 13:23</view> -->
+  </view>
+</view>
+
+<!-- 模态框：点击弹出图片 -->
+<view class="cu-modal {{modalName=='Image'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="bg-img" style="background-image: url('{{modalImg2}}');height:200px;">
+      <view class="cu-bar justify-end text-white">
+        <view class='action' bindtap='hideModal'>
+          <text class='icon-close '></text>
+        </view>
+      </view>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class='action margin-0 flex-sub  solid-left' bindtap='hideModal'>{{day_sent}}</view>
+    </view>
+  </view>
+</view>
+
+     <!-- 上传图片 -->
+</view>
